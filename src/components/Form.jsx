@@ -37,7 +37,7 @@ const UserForm = ({ inputs, handleSubmit, handleChange }) => {
                     value={inputs.email}
                 /><br></br>
                 <span className="text-danger">
-                    {inputs.email.length < 2 ? "email should be longer then 2 characters." : ""}
+                    {inputs.email.length < 5 ? "email should be longer then 2 characters." : ""}
                 </span>
             </div>
             <div className="form-group">
