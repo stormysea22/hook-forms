@@ -1,22 +1,46 @@
 import React, { useState } from 'react';
-import Form from "./components/Form";
-import Results from "./components/Results";
+import UserForm from "./components/Form";
 import './App.css';
 
-function App() {
-  const [state, setState] = useState({
+const App = (props) => {
+
+  const [user, setUser] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     confirmPassword: ""
   });
+
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setUser({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+    });
+  };
+
+
   return (
     <div className="App">
-      <Form inputs={state} setInputs={setState} />
-      <Results data={state} />
+      <UserForm
+        inputs={user}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+      />
     </div>
   );
-}
+};
 
 export default App;
